@@ -8,7 +8,7 @@ E-mail:
 
 ----------
 ###2015/06/12 update
-fix some bug for some Raspberry Pi B+.
+For 13_lcd1602: fix some bug for some Raspberry Pi B+.
 - Change pins:
  - RS =====> 27
  - EN =====> 22
