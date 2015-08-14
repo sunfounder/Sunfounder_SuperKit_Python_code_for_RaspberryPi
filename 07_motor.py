@@ -24,6 +24,7 @@ def loop():
 		GPIO.output(MotorEnable, GPIO.LOW) # motor stop
 		time.sleep(5)
 		
+		GPIO.output(MotorEnable, GPIO.HIGH) # motor driver enable
 		GPIO.output(MotorPin1, GPIO.LOW)   # anticlockwise
 		GPIO.output(MotorPin2, GPIO.HIGH)
 		time.sleep(5)
