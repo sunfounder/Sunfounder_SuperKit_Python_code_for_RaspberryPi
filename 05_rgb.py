@@ -22,9 +22,9 @@ def map(x, in_min, in_max, out_min, out_max):
 	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
 def setColor(col):   # For example : col = 0x112233
-	R_val = (col & 0x110000) >> 16
-	G_val = (col & 0x001100) >> 8
-	B_val = (col & 0x000011) >> 0
+	R_val = (col & 0xFF0000) >> 16
+	G_val = (col & 0x00FF00) >> 8
+	B_val = (col & 0x0000FF) >> 0
 	
 	R_val = map(R_val, 0, 255, 0, 100)
 	G_val = map(G_val, 0, 255, 0, 100)

@@ -7,6 +7,14 @@ E-mail:
 	support@sunfounder.com
 
 ----------
+###2016/01/13 update
+Summery:
+- Fix a bug on 05_rgb.py
+
+Details:
+- Thanks for zygotine(We don't have his/her name, it's from his/her email address), fix the setColor function.
+
+
 ###2015/12/28 update
 Summery:
 - Remove 01_led_1.py
