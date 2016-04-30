@@ -265,4 +265,8 @@ def loop():
 		sleep(2)
 
 if __name__ == '__main__':
-	loop()
+	try:
+		loop()
+	except KeyboardInterrupt:
+		import RPi.GPIO as GPIO
+		GPIO.cleanup()
