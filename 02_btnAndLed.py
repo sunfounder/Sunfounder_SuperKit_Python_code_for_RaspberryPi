@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
+import time
 
 LedPin = 11    # pin11 --- led
 BtnPin = 12    # pin12 --- button
@@ -24,7 +25,7 @@ def swLed(ev=None):
 def loop():
 	GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=swLed) # wait for falling
 	while True:
-		pass   # Don't do anything
+		time.sleep(1)   # Don't do anything
 
 def destroy():
 	GPIO.output(LedPin, GPIO.HIGH)     # led off
