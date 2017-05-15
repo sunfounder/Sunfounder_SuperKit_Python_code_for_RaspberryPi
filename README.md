@@ -7,7 +7,7 @@ E-mail:
 	support@sunfounder.com
 
 ### Customer's idea:
- - [**pimorse**](https://github.com/gabolander/pimorse) Raspberry Pi Morse code generater from [Gabriele Zappi](https://github.com/gabolander)
+ - [**pimorse**](https://github.com/gabolander/pimorse) Raspberry Pi Morse code generater from [Gabriele Zappi](https://github.com/gabolander) Run command `git submodule update --init` to clone the pymorse submodule, or else, it will be empty.
 
 ----------
 ###2016/01/13 update
