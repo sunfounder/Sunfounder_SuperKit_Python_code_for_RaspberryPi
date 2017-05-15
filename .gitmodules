@@ -1,0 +1,3 @@
+[submodule "pymorse"]
+	path = pymorse
+	url = https://github.com/gabolander/pymorse
