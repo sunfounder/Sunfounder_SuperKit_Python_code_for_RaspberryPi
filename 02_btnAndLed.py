@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import RPi.GPIO as GPIO
 import time
 
@@ -18,9 +18,9 @@ def swLed(ev=None):
 	Led_status = not Led_status
 	GPIO.output(LedPin, Led_status)  # switch led status(on-->off; off-->on)
 	if Led_status == 1:
-		print 'led off...'
+		print ("led off...")
 	else:
-		print '...led on'
+		print ("...led on")
 
 def loop():
 	GPIO.add_event_detect(BtnPin, GPIO.FALLING, callback=swLed, bouncetime=200) # wait for falling and set bouncetime to prevent the callback function from being called multiple times when the button is pressed

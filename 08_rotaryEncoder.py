@@ -1,64 +1,70 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 import RPi.GPIO as GPIO
 import time
 
-RoAPin = 11    # pin11
-RoBPin = 12    # pin12
-RoSPin = 13    # pin13
-
-globalCounter = 0
-
-flag = 0
-Last_RoB_Status = 0
-Current_RoB_Status = 0
+# Set up pins
+# Rotary A Pin
+RoAPin = 17
+# Rotary B Pin
+RoBPin = 18
+# Rotary Switch Pin
+RoSPin = 27
 
 def setup():
-	GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
-	GPIO.setup(RoAPin, GPIO.IN)    # input mode
+	global counter
+	global Last_RoB_Status, Current_RoB_Status
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(RoAPin, GPIO.IN)
 	GPIO.setup(RoBPin, GPIO.IN)
-	GPIO.setup(RoSPin,GPIO.IN,pull_up_down=GPIO.PUD_UP)
-	rotaryClear()
+	GPIO.setup(RoSPin,GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	# Set up a falling edge detect to callback clear
+	GPIO.add_event_detect(RoSPin, GPIO.FALLING, callback=clear)
 
+	# Set up a counter as a global variable
+	counter = 0
+	Last_RoB_Status = 0
+	Current_RoB_Status = 0
+
+# Define a function to deal with rotary encoder
 def rotaryDeal():
-	global flag
-	global Last_RoB_Status
-	global Current_RoB_Status
-	global globalCounter
+	global counter
+	global Last_RoB_Status, Current_RoB_Status
+
+	flag = 0
 	Last_RoB_Status = GPIO.input(RoBPin)
+	# When RoAPin level changes
 	while(not GPIO.input(RoAPin)):
 		Current_RoB_Status = GPIO.input(RoBPin)
 		flag = 1
 	if flag == 1:
+		# Reset flag
 		flag = 0
 		if (Last_RoB_Status == 0) and (Current_RoB_Status == 1):
-			globalCounter = globalCounter + 1
-			print 'globalCounter = %d' % globalCounter
+			counter = counter + 1
 		if (Last_RoB_Status == 1) and (Current_RoB_Status == 0):
-			globalCounter = globalCounter - 1
-			print 'globalCounter = %d' % globalCounter
+			counter = counter - 1
+		print ("counter = %d" % counter)
 
+# Define a callback function on switch, to clean "counter"
 def clear(ev=None):
-        globalCounter = 0
-	print 'globalCounter = %d' % globalCounter
-	time.sleep(1)
+	global counter
+	counter = 0
 
-def rotaryClear():
-        GPIO.add_event_detect(RoSPin, GPIO.FALLING, callback=clear) # wait for falling
-
-
-def loop():
-	global globalCounter
+def main():
 	while True:
 		rotaryDeal()
-#		print 'globalCounter = %d' % globalCounter
 
 def destroy():
-	GPIO.cleanup()             # Release resource
+	# Release resource
+	GPIO.cleanup()  
 
-if __name__ == '__main__':     # Program start from here
+# If run this script directly, do:
+if __name__ == '__main__':
 	setup()
 	try:
-		loop()
-	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+		main()
+	# When 'Ctrl+C' is pressed, the child program 
+	# destroy() will be  executed.
+	except KeyboardInterrupt:
 		destroy()
-

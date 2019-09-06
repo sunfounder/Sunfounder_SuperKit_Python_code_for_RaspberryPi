@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #================================================
 #
 #	This program is for SunFounder SuperKit for Rpi.
@@ -30,8 +30,8 @@ LED3 = [0x02,0x03,0x0b,0x0f,0x2f,0x3f,0xbf,0xff]	#blink mode 3
 #=================================================
 
 def print_msg():
-	print 'Program is running...'
-	print 'Please press Ctrl+C to end the program...'
+	print ("Program is running...")
+	print ("Please press Ctrl+C to end the program...")
 
 def setup():
 	GPIO.setmode(GPIO.BOARD)    # Number GPIOs by its physical location

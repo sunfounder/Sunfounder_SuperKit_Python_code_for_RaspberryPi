@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Python library for ADXL345 accelerometer.
 
@@ -22,10 +22,10 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-from Adafruit_I2C import Adafruit_I2C
+from I2C import I2C
 
 
-class Adafruit_ADXL345(Adafruit_I2C):
+class Adafruit_ADXL345(I2C):
 
     # Minimal constants carried over from Arduino library
 
@@ -60,7 +60,7 @@ class Adafruit_ADXL345(Adafruit_I2C):
 
     def __init__(self, busnum=-1, debug=False):
 
-        self.accel = Adafruit_I2C(self.ADXL345_ADDRESS, busnum, debug)
+        self.accel = I2C(self.ADXL345_ADDRESS, busnum, debug)
 
         if self.accel.readU8(self.ADXL345_REG_DEVID) == 0xE5:
             # Enable the accelerometer
@@ -96,6 +96,7 @@ class Adafruit_ADXL345(Adafruit_I2C):
         res = []
         for i in range(0, 6, 2):
             g = raw[i] | (raw[i+1] << 8)
+            g = 65535 - g
             if g > 32767: g -= 65536
             res.append(g)
         return res
@@ -108,7 +109,7 @@ if __name__ == '__main__':
 
     accel = Adafruit_ADXL345()
 
-    print '[Accelerometer X, Y, Z]'
+    print ("[Accelerometer X, Y, Z]")
     while True:
-        print accel.read()
+        print (accel.read())
         sleep(1) # Output is fun to watch if this is commented out

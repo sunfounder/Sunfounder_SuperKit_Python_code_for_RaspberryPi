@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #
 # based on code from lrvick and LiquidCrystal
@@ -202,7 +202,7 @@ class LCD:
 
     def message(self, text):
         # Send string to LCD. Newline wraps to second line
-        print "message: %s"%text
+        print ("message: %s"%text)
         for char in text:
             if char == '\n':
                 self.write4bits(0xC0) # next line
@@ -210,7 +210,7 @@ class LCD:
                 self.write4bits(ord(char),True)
     
     def destroy(self):
-        print "clean up used_gpio"
+        #print ("clean up used_gpio")
         self.GPIO.cleanup(self.used_gpio)
 
 def loop():

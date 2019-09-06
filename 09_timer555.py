@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import RPi.GPIO as GPIO
 
 SigPin = 11    # pin11
@@ -16,7 +16,7 @@ def setup():
 
 def loop():
 	while True:
-		print 'g_count = %d' % g_count
+		print ("g_count = %d" % g_count)
 
 def destroy():
 	GPIO.cleanup()    # Release resource
