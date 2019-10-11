@@ -3,9 +3,9 @@ import RPi.GPIO as GPIO
 import time
 
 colors = [0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00, 0xFF00FF, 0x00FFFF]
-pins = {'pin_R':11, 'pin_G':12, 'pin_B':13}  # pins is a dict
+pins = {'pin_R':17, 'pin_G':18, 'pin_B':27}  # pins is a dict
 
-GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
+GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
 for i in pins:
 	GPIO.setup(pins[i], GPIO.OUT)   # Set pins' mode is output
 	GPIO.output(pins[i], GPIO.HIGH) # Set pins to high(+3.3V) to off led

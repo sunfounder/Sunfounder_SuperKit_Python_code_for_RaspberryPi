@@ -8,7 +8,7 @@ SDI   = 17
 RCLK  = 18
 SRCLK = 27
 
-TouchPin = 22
+buttonPin = 22
 
 # Define a segment code from 1 to 6 in Hexadecimal
 SegCode = [0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d]
@@ -26,8 +26,8 @@ def setup():
 	GPIO.setup(SDI, GPIO.OUT, initial=GPIO.LOW)
 	GPIO.setup(RCLK, GPIO.OUT, initial=GPIO.LOW)
 	GPIO.setup(SRCLK, GPIO.OUT, initial=GPIO.LOW)
-	GPIO.setup(TouchPin, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-	GPIO.add_event_detect(TouchPin, GPIO.RISING, callback = randomISR, bouncetime = 20)
+	GPIO.setup(buttonPin, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+	GPIO.add_event_detect(buttonPin, GPIO.RISING, callback = randomISR, bouncetime = 20)
 
 # Shift the data to 74HC595
 def hc595_shift(dat):

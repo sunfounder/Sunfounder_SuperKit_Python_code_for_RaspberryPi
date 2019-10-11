@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import RPi.GPIO as GPIO
 
-SigPin = 11    # pin11
+SigPin = 17
 
 g_count = 0
 
@@ -10,7 +10,7 @@ def count(ev=None):
 	g_count += 1
 
 def setup():
-	GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
+	GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
 	GPIO.setup(SigPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)    # Set Pin's mode is input, and pull up to high level(3.3V)
 	GPIO.add_event_detect(SigPin, GPIO.RISING, callback=count) # wait for rasing
 

@@ -50,7 +50,8 @@ def rotaryDeal():
 def clear(ev=None):
 	global counter
 	counter = 0
-
+	print ("counter = %d" % counter)
+	
 def main():
 	while True:
 		rotaryDeal()

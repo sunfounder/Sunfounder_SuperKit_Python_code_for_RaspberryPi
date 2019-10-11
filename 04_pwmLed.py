@@ -2,11 +2,11 @@
 import RPi.GPIO as GPIO
 import time
 
-LedPin = 12
+LedPin = 18
 
 def setup():
 	global p
-	GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
+	GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
 	GPIO.setup(LedPin, GPIO.OUT)   # Set LedPin's mode is output
 	GPIO.output(LedPin, GPIO.LOW)  # Set LedPin to low(0V)
 
@@ -26,7 +26,6 @@ def loop():
 
 def destroy():
 	p.stop()
-	GPIO.output(LedPin, GPIO.HIGH)    # turn off all leds
 	GPIO.cleanup()
 
 if __name__ == '__main__':     # Program start from here

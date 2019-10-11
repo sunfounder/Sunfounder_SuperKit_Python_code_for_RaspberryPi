@@ -2,12 +2,12 @@
 import RPi.GPIO as GPIO
 import time
 
-MotorPin1   = 11    # pin11
-MotorPin2   = 12    # pin12
-MotorEnable = 13    # pin13
+MotorPin1   = 17
+MotorPin2   = 18
+MotorEnable = 27
 
 def setup():
-	GPIO.setmode(GPIO.BOARD)          # Numbers GPIOs by physical location
+	GPIO.setmode(GPIO.BCM)          # Numbers GPIOs by BCM
 	GPIO.setup(MotorPin1, GPIO.OUT)   # mode --- output
 	GPIO.setup(MotorPin2, GPIO.OUT)
 	GPIO.setup(MotorEnable, GPIO.OUT)

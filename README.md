@@ -10,12 +10,19 @@ E-mail:
  - [**pimorse**](https://github.com/gabolander/pimorse) Raspberry Pi Morse code generater from [Gabriele Zappi](https://github.com/gabolander) Run command `git submodule update --init` to clone the pymorse submodule, or else, it will be empty.
 
 ----------
+### 2019/10/11update
+Summery:
+
+- change the BOARD naming method to BCM
+- change 12_dotMatrix.py to 12_DotMatrix.py
+- add a print() in 08_rotaryEncoder.py code
+- add in the user manual of this kit
+
 ### 2019/09/06 update
 Summery:
 
 - change `#!/usr/bin/env python` to `#!/usr/bin/env python3`
 - add a code 14_ADXL345.py
-- change 12_dotMatrix.py to 12_DotMatrix.py
 - fix all the bugs of print function for python3
 
 ### 2016/01/13 update

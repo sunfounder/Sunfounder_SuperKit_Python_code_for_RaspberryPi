@@ -13,9 +13,9 @@
 import RPi.GPIO as GPIO
 import time
 
-SDI   = 11
-RCLK  = 12
-SRCLK = 13
+SDI   = 17
+RCLK  = 18
+SRCLK = 27
 
 #===============   LED Mode Defne ================
 #	You can define yourself, in binay, and convert it to Hex 
@@ -34,7 +34,7 @@ def print_msg():
 	print ("Please press Ctrl+C to end the program...")
 
 def setup():
-	GPIO.setmode(GPIO.BOARD)    # Number GPIOs by its physical location
+	GPIO.setmode(GPIO.BCM)    # Number GPIOs by BCM
 	GPIO.setup(SDI, GPIO.OUT)
 	GPIO.setup(RCLK, GPIO.OUT)
 	GPIO.setup(SRCLK, GPIO.OUT)

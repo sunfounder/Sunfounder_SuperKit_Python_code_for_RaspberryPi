@@ -2,10 +2,10 @@
 import RPi.GPIO as GPIO
 import time
 
-LedPin = 11    # pin11
+LedPin = 17
 
 def setup():
-	GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
+	GPIO.setmode(GPIO.BCM)       # Numbers GPIOs by BCM
 	GPIO.setup(LedPin, GPIO.OUT)   # Set LedPin's mode is output
 	GPIO.output(LedPin, GPIO.HIGH) # Set LedPin high(+3.3V) to off led
 
