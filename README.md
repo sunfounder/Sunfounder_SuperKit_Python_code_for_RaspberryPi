@@ -10,7 +10,13 @@ E-mail:
  - [**pimorse**](https://github.com/gabolander/pimorse) Raspberry Pi Morse code generater from [Gabriele Zappi](https://github.com/gabolander) Run command `git submodule update --init` to clone the pymorse submodule, or else, it will be empty.
 
 ----------
-### 2019/10/11update
+### 2020/1/2 update
+Summery:
+
+- add a Adafruit_ADXL345.py code
+- add in the German user manual
+
+### 2019/10/11 update
 Summery:
 
 - change the BOARD naming method to BCM
