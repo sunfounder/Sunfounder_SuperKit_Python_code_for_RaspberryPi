@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import RPi.GPIO as GPIO
+import time
 
 SigPin = 17
 
@@ -17,6 +18,7 @@ def setup():
 def loop():
 	while True:
 		print ("g_count = %d" % g_count)
+		time.sleep(0.2)
 
 def destroy():
 	GPIO.cleanup()    # Release resource
