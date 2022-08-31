@@ -52,7 +52,7 @@ class I2C(object):
     finally:
       f.close()
 
-  def __init__(self, address, bus_number=-1, debug=False):
+  def __init__(self, address, bus_number=1, debug=False):
     self.address = address
     # By default, the correct I2C bus is auto-detected using /proc/cpuinfo
     # Alternatively, you can hard-code the bus version below:
